@@ -1,4 +1,1 @@
-import './attendance.html'
-
-
-
+import "./attendance.html";
