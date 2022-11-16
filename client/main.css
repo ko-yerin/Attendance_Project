@@ -2,3 +2,26 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
+.admin-form{
+  justify-content: center;
+  display: flex;
+}
+#admin-button{
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+#hidden {
+   display:none;
+}
+#search{
+  cursor: pointer;
+}
+#close {
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.c-card__footer{
+  float: right;
+  padding: 20px;
+}

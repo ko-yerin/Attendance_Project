@@ -53,6 +53,9 @@
       "meteor/blaze-hot": [
         "/Users/anhyoseung/.meteor/packages/blaze-hot/1.1.1/web.browser/hot.js",
         "/Users/anhyoseung/.meteor/packages/blaze-hot/1.1.1/web.browser/update-templates.js"
+      ],
+      "meteor/session": [
+        "/Users/anhyoseung/.meteor/packages/session/1.2.0/web.browser/session.js"
       ]
     }
   },

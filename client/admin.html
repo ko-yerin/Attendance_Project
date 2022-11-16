@@ -1,0 +1,46 @@
+<template name="admin">
+    <div>
+        <h1>☄️ CREVERSE</h1>
+        <button id="admin-button" type="button" class="c-button">Back</button>
+    </div>
+    {{!-- {{#each Admin}} --}}
+    {{!-- <p>{{getDate out}}</p> --}}
+    <form id="submit-form">
+        <div class="c-input-group">
+
+         <div class="o-field">
+            <input type="text" name="nick" class="c-field" placeholder="Nickname">
+        </div>
+            <button id="search" type="submit" class="c-button c-button--successs">Check</button>
+        </div>
+    </form>
+
+    <div class="admin-form">
+        <h1>Admin Page</h1>
+        <table class="c-table c-table--condensed">
+  <caption class="c-table__caption">Only Owner for admin</caption>
+  <thead class="c-table__head">
+  <tr class="c-table__row c-table__row--heading">
+    <th class="c-table__cell">name</th>
+    <th class="c-table__cell">Eng name</th>
+    <th class="c-table__cell">출근</th>
+    <th class="c-table__cell">퇴근</th>
+  </tr>
+  </thead>
+  <tbody class="c-table__body">
+    {{#each Admin}}
+  <tr class="c-table__row">
+    <td class="c-table__cell">{{name}}</td>
+    <td class="c-table__cell">{{nickname}}</td>
+    <td class="c-table__cell">{{getInDate in}}</td>
+    <td class="c-table__cell">{{getOutDate out}}</td>
+  </tr>
+  {{/each}}
+  </tbody>
+</table>
+    </div>
+    {{!-- {{#if Session.get}} --}}
+    {{> modal}}
+    {{!-- {{/if}} --}}
+    </template>
+

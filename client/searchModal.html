@@ -1,0 +1,22 @@
+<template name="modal">
+  <div id="hidden">
+    <div aria-hidden class="c-overlay c-overlay--visible"></div>
+<div role="dialog" class="o-modal o-modal--visible">
+  <div class="c-card">
+    <header class="c-card__header">
+      <h2 class="c-heading">{{nickNameFind}}</h2>
+    </header>
+
+    <div class="c-card__body o-panel" style="height:300px;">
+      {{#each check}}
+        <p> ✅IN:{{in}}</p>
+        <p>☑️OUT:{{out}}</p>
+      {{/each}}
+    </div>
+    <footer class="c-card__footer">
+      <button id="close" type="button" class="c-button c-button--brand">Close</button>
+    </footer>
+  </div>
+</div>
+</div>
+    </template>
