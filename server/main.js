@@ -1,5 +1,7 @@
 import { Meteor } from "meteor/meteor";
-import { Users2 } from "../lib/collection";
+import { Users2 } from "../api/collection";
+
+import "../api/routes";
 
 Meteor.startup(() => {
   if (Users2.find().count() == 0) {

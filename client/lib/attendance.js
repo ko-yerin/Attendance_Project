@@ -1,5 +1,7 @@
-import "./attendance.html";
-import { Users2 } from "/lib/collection";
+// import ".../api/routes.js";
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
+
+const { Users2 } = require("../../api/collection");
 
 Template.attendanceSystem.events({
   "click button[name=come]": function (e, i) {
@@ -39,5 +41,12 @@ Template.attendanceSystem.events({
 Template.attendanceSystem.helpers({
   starting() {
     return this._id === Session.get("start_work");
+  },
+});
+
+Template.attendanceSystem.events({
+  "click .admin": function () {
+    console.log("admin방");
+    FlowRouter.go("/admin");
   },
 });
