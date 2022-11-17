@@ -6,3 +6,7 @@
 로그인/회원가입
 
 펍&섭 / 메서드&콜 / 스
+
+
+✅ https://github.com/kadirahq/flow-router 참고해서 라우팅 설정해보기
+어드민 버튼 설정완료
