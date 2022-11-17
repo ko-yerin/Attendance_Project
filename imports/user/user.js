@@ -1,1 +1,1 @@
-import "./user.html"
+import "./user.html";
