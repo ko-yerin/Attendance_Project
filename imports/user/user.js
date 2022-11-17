@@ -1,6 +1,8 @@
+
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import "./user.html"
+import "./user.html";
+
 
 Template.customSignUp.events({
     "click button[name=signUp]" (evt,tmpl){
@@ -62,3 +64,6 @@ Template.customLogIn.helpers({
         else return "";
     }
 });
+
+
+
