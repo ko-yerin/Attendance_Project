@@ -7,7 +7,13 @@ const { Users2, Attendance } = require("../../api/collection");
 
 Template.attendance_list.helpers({
   list() {
-    return Attendance.find({ user_id: user._id }, { limit: 100 }).fetch();
+    // console.log(
+    //   Attendance.findOne({ user_id: user._id }, { limit: 100 }).fetch()
+    // );
+    return Attendance.findOne(
+      { user_id: "bSC5YrarAcrcvYq3E" },
+      { limit: 100 }
+    ).fetch();
   },
   getInDate(date) {
     return date.toLocaleString();
@@ -27,9 +33,11 @@ Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
     const user = Meteor.user();
     console.log(user);
+    console.log("2", user.username);
 
     Attendance.insert({
       user_id: user._id,
+      name: user.username,
       in_createdAt: new Date(),
       type: "출석",
     });
@@ -46,6 +54,7 @@ Template.attendance_System.events({
 
     Attendance.insert({
       user_id: user._id,
+      name: user.username,
       out_createdAt: new Date(),
       type: "퇴근",
     });
