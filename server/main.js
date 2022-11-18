@@ -1,5 +1,6 @@
 import { Meteor } from "meteor/meteor";
 import { Users2, Attendance } from "../client/lib/collection";
+import "../api/routes";
 
 Meteor.startup(() => {
   // Attendance.remove({});
