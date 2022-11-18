@@ -5,19 +5,19 @@ import { Meteor } from "meteor/meteor";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Session } from "meteor/session";
 import "./searchModal";
-import { Users2 } from "/api/collection";
+import {Attendance, Users2} from "/api/collection";
 
 // import "../../api/routes";
 
 Template.admin.helpers({
   Admin() {
-    return attendance.find({});
+    return Attendance.find({});
   },
   getName() {
-    return attendance.find({});
+    return Attendance.find({});
   },
   getNickName() {
-    return attendance.find();
+    return Attendance.find();
   },
   getInDate(date) {
     return date.toLocaleString();

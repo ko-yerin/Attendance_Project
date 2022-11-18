@@ -15,6 +15,5 @@
   "meteor": {
     "mainModule": {},
     "testModule": "tests/main.js"
-
   }
 }

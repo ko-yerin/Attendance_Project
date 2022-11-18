@@ -35,6 +35,7 @@ Template.attendance_System.events({
     console.log(user);
     console.log("2", user.profile.name);
 
+
     Attendance.insert({
       user_id: user._id,
       name: user.username,
