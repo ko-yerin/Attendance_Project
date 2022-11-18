@@ -11,13 +11,13 @@ import { Users2 } from "/api/collection";
 
 Template.admin.helpers({
   Admin() {
-    return Users2.find({});
+    return attendance.find({});
   },
   getName() {
-    return Users2.find({});
+    return attendance.find({});
   },
   getNickName() {
-    return Users2.find();
+    return attendance.find();
   },
   getInDate(date) {
     return date.toLocaleString();
@@ -47,12 +47,12 @@ Template.admin.events({
     const target = event.target;
     const nick = target.nick.value;
     console.log("nick:", nick);
-    //password 다뜸 펍섭 or 메서드콜방식으로
+
     var a = Users.find({ nickname: nick }).fetch()[0].nickname;
     if (a !== nick) {
       alert("닉네임을 찾을 수 없습니다!");
     } else {
-      alert(a);
+
       var con = document.getElementById("hidden");
       con.style.display = "block"; //자바스크립트 css 변경
 
@@ -60,11 +60,7 @@ Template.admin.events({
       Session.set("a", a);
       console.log("Session", Session.get("a"));
     }
-    //모달 => 작업
 
-    //admin 계정일경우 설정 해도됌 if
   },
 });
 
-//버튼 눌렀을때 모달띄우기
-//꺼주기
