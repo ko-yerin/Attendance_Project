@@ -1,19 +1,17 @@
 //1.직접로그인아디받아서 데이터 뿌리기
 //2.최신순으로
 //3. 정렬 손보기
+//4. 버튼1번 누르고 그담에는 안눌리게
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Template } from "meteor/templating";
 
 const { Attendance } = require("../../api/collection");
 
-const user = Meteor.user();
-console.log("user1", user);
-
 Template.attendance_list.helpers({
   list() {
     return Attendance.find(
-      { user_id: "4ZKL2rrdTip7ZGcNL" },
-      { limit: 20 }
+      { user_id: "qpXYBsrZ9DfEBcH2s" },
+      { limit: 20, sort: { in_createdAt: 1 } }
     ).fetch();
   },
   getInDate(date) {
@@ -32,9 +30,8 @@ Template.attendance_list.events({
 
 Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
-    // const user = Meteor.user();
-    // console.log("user", user);
-
+    const user = Meteor.user();
+    console.log("user", user);
 
     Attendance.insert({
       user_id: user._id,
