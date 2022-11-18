@@ -1,15 +1,16 @@
-// import "./attendance.html";
-// import { Users2, Attendance } from "../../../api/collection";
+//1.직접로그인아디받아서 데이터 뿌리기
+//2.최신순으로
+//3. 정렬 손보기
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Template } from "meteor/templating";
 
 const { Attendance } = require("../../api/collection");
 
+const user = Meteor.user();
+console.log("user1", user);
+
 Template.attendance_list.helpers({
   list() {
-    // console.log(
-    //   Attendance.findOne({ user_id: user._id }, { limit: 100 }).fetch()
-    // );
     return Attendance.find(
       { user_id: "4ZKL2rrdTip7ZGcNL" },
       { limit: 20 }
@@ -31,9 +32,8 @@ Template.attendance_list.events({
 
 Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
-    const user = Meteor.user();
-    console.log(user);
-    console.log("2", user.profile.name);
+    // const user = Meteor.user();
+    // console.log("user", user);
 
 
     Attendance.insert({
@@ -51,9 +51,6 @@ Template.attendance_System.events({
   },
 
   "click button[name=finish_work]": function (e, i) {
-    const user = Meteor.user();
-    console.log(user);
-
     Attendance.insert({
       user_id: user._id,
       name: user.username,
