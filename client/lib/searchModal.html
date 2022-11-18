@@ -9,11 +9,8 @@
 
     <div class="c-card__body o-panel" style="height:300px;">
       {{#each check}}
-        {{#if in_createdAt}}
-        <p> ✅IN:{{in_createdAt}}</p>
-        {{else}}
-        <p> ☑️OUT:{{out_createdAt}}</p>
-        {{/if}}
+        <p> ✅IN:{{in}}</p>
+        <p> ☑️OUT:{{out}}</p>
       {{/each}}
     </div>
     <footer class="c-card__footer">
