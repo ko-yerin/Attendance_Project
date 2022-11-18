@@ -13,14 +13,14 @@ import { BlazeLayout } from "meteor/kadira:blaze-layout";
 FlowRouter.route("/", {
   name: "Home",
   action() {
-    BlazeLayout.render("customSignUp");
+    BlazeLayout.render("IntoAttendance");
   },
 });
 
-FlowRouter.route("/attendanceSystem", {
+FlowRouter.route("/attendance_list", {
   name: "Attend",
   action() {
-    BlazeLayout.render("attendanceSystem");
+    BlazeLayout.render("attendance_list");
   },
 });
 

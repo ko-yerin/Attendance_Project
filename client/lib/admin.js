@@ -34,7 +34,7 @@ Template.admin.onCreated(function () {
 Template.admin.events({
   "click #admin-button": function (event, template) {
     console.log("click");
-    FlowRouter.go("/attendanceSystem");
+    FlowRouter.go("/attendance_list");
 
     // flow router. go 활용 예정
   },

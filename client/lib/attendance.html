@@ -8,7 +8,11 @@
 <!--</template>-->
 
 <template name="attendance_list">
+    <div >
+        <button  id="search" class="c-button c-button--successs">Admin</button>
+    </div>
     <table>
+
         <thead>
         <tr>
             <th>출근시간</th>
@@ -23,6 +27,7 @@
             </tr>
         {{/each}}
         </tbody>
+        {{> attendance_System}}
 
     </table>
 </template>
