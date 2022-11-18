@@ -20,7 +20,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/attendanceSystem", {
   name: "Attend",
   action() {
-    BlazeLayout.render("attendanceSystem");
+    BlazeLayout.render("attendance_System");
   },
 });
 

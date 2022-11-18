@@ -21,8 +21,8 @@ Template.attendance_list.helpers({
 
 Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
-    // const user1 = Meteor.user();
-    // console.log(user1);
+    const user1 = Meteor.user();
+    console.log(user1);
 
     const user = Users2.findOne();
     // const user = Users2.find({ _id });
