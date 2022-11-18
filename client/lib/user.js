@@ -2,6 +2,7 @@ import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
 import "./user.html";
 import { Users2 } from "../../api/collection";
+// import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
 // import ".../api/routes.js";
 // import "../../api/routes";
@@ -32,6 +33,7 @@ Template.customSignUp.events({
       else{
         alert('회원가입 성공!');
         $(tmpl.findAll('input')).val("");
+        FlowRouter.go("/attendance_list");
 
       }
     });
@@ -62,6 +64,7 @@ Template.customLogIn.events({
     Meteor.loginWithPassword(email, password, function(error){
       if(!error){
         Meteor.logoutOtherClients();  //Meteor.logoutOtherClients : 현재 클라이언트에 로그인된 사용자를 로그아웃시킴
+        FlowRouter.go("/attendance_list");
       }
       else{
         alert(error.reason);
