@@ -40,21 +40,28 @@ Template.customSignUp.events({
   },
 
   'change [type=checkbox]': function(evt,tmpl){
-    const checkbox = document.getElementById('password_check');
-    const is_checked = checkbox.checked;  //checkbox가 체크되면 true
+    const checkbox1 = document.getElementById('password_check1');
+    const is_checked = checkbox1.checked;  //checkbox가 체크되면 true
     const password_type = tmpl.find('input[name=password]').type; // password 타입
-    console.log(password_type);
 
     if(is_checked && password_type === "password"){
-      Session.set("password_text", "text");  // 패스워드 타입이 패스워드면 password_text 이라는 세션 변수에.... 수정중
-      console.log("Task marked as complete.");
+      Session.set("password_text", 'password');  // 패스워드 타입이 패스워드면 password_text 이라는 세션 변수에 true값 넣어줌
+      console.log("체크버튼 눌림");
 
     } else if(!is_checked && password_type === "text") {
-      Session.set("password_text", "text");  // 패스워드 타입이 텍스트면 password_text 이라는 세션 변수에... 수정중
-      console.log("Task marked as incomplete.");
+      Session.set("password_text", 'text');  // 패스워드 타입이 텍스트면 password_text 이라는 세션 변수에 false값 넣어줌
+      console.log("체크버튼 풀림");
     }
   }
 });
+
+Template.customSignUp.helpers({
+  password_type() {
+    return "password" === Session.get("password_text");
+
+  }
+});
+
 
 Template.customLogIn.events({
   "click button[name=login]" (evt,tmpl){
