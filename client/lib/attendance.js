@@ -1,15 +1,21 @@
-// import "./attendance.html";
-// import { Users2, Attendance } from "../../../api/collection";
+
+//1.직접로그인아디받아서 데이터 뿌리기
+//2.최신순으로
+//3. 정렬 손보기
+//4. 버튼1번 누르고 그담에는 안눌리게
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Template } from "meteor/templating";
 
-const { Users2, Attendance } = require("../../api/collection");
+const { Attendance } = require("../../api/collection");
+
 
 Template.attendance_list.helpers({
   list() {
     return Attendance.find(
-      { user_id: "qq7ndM68agpqjMq8f" },
-      { limit: 100 }
+
+      { user_id: "qpXYBsrZ9DfEBcH2s" },
+      { limit: 20, sort: { in_createdAt: 1 } }
+
     ).fetch();
   },
   getInDate(date) {
@@ -27,8 +33,10 @@ Template.attendance_list.events({
 
 Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
-    const user1 = Meteor.user();
-    console.log(user1);
+
+    const user = Meteor.user();
+    console.log("user", user);
+
 
     const user = Users2.findOne();
     // const user = Users2.find({ _id });
