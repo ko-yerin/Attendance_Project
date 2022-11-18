@@ -2,7 +2,7 @@ import { Template } from "meteor/templating";
 //meteor add session
 import "./searchModal.html";
 import { Session } from "meteor/session";
-import {Attendance, Users2} from "/api/collection";
+import { Users2 } from "/api/collection";
 
 // import "../../api/routes";
 
@@ -18,9 +18,9 @@ Template.modal.events({
 Template.modal.helpers({
   nickNameFind() {
     // console.log("check",Users.find({name}).fetch())~
-    return Session.get("profile");
+    return Session.get("a");
   },
   check() {
-    return Attendance.find({ profile_name: Session.get("profile") }); // 유저 in out
+    return Users2.find({ nickname: Session.get("a") }); // 유저 in out
   },
 });
