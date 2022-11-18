@@ -3,16 +3,16 @@
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Template } from "meteor/templating";
 
-const { Users2, Attendance } = require("../../api/collection");
+const { Attendance } = require("../../api/collection");
 
 Template.attendance_list.helpers({
   list() {
     // console.log(
     //   Attendance.findOne({ user_id: user._id }, { limit: 100 }).fetch()
     // );
-    return Attendance.findOne(
-      { user_id: "bSC5YrarAcrcvYq3E" },
-      { limit: 100 }
+    return Attendance.find(
+      { user_id: "4ZKL2rrdTip7ZGcNL" },
+      { limit: 20 }
     ).fetch();
   },
   getInDate(date) {
@@ -33,11 +33,12 @@ Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
     const user = Meteor.user();
     console.log(user);
-    console.log("2", user.username);
+    console.log("2", user.profile.name);
 
     Attendance.insert({
       user_id: user._id,
       name: user.username,
+      profile_name: user.profile.name,
       in_createdAt: new Date(),
       type: "출석",
     });
@@ -55,6 +56,7 @@ Template.attendance_System.events({
     Attendance.insert({
       user_id: user._id,
       name: user.username,
+      profile_name: user.profile.name,
       out_createdAt: new Date(),
       type: "퇴근",
     });

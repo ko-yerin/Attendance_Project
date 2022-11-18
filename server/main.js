@@ -40,4 +40,3 @@ Accounts.validateNewUser(function (user) {
     throw new Meteor.Error(403, "사용자명은 적어도 3자 이상.");
   }
 });
-
