@@ -1,52 +1,61 @@
-// import ".../api/routes.js";
+// import "./attendance.html";
+// import { Users2, Attendance } from "../../../api/collection";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 
-const { Users2 } = require("../../api/collection");
+const { Users2, Attendance } = require("../../api/collection");
 
-Template.attendanceSystem.events({
-  "click button[name=come]": function (e, i) {
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = ("0" + (today.getMonth() + 1)).slice(-2);
-    let day = ("0" + today.getDate()).slice(-2);
-    let dateString = year + "-" + month + "-" + day;
-    let hours = ("0" + today.getHours()).slice(-2);
-    let minutes = ("0" + today.getMinutes()).slice(-2);
-    let seconds = ("0" + today.getSeconds()).slice(-2);
-    let timeString = hours + ":" + minutes + ":" + seconds;
-    const start_time = dateString + "/" + timeString;
+Template.attendance_list.helpers({
+  list() {
+    return Attendance.find(
+      { user_id: "qq7ndM68agpqjMq8f" },
+      { limit: 100 }
+    ).fetch();
+  },
+  getInDate(date) {
+    return date.toLocaleString();
+  },
+  getOutDate(date) {
+    return date.toLocaleString();
+  },
+});
 
-    Users2.insert({ in: start_time });
+Template.attendance_System.events({
+  "click button[name=go_to_work]": function (e, i) {
+    // const user1 = Meteor.user();
+    // console.log(user1);
+
+    const user = Users2.findOne();
+    // const user = Users2.find({ _id });
+    // console.log("user", user);
+    Attendance.insert({
+      user_id: user._id,
+      in_createdAt: new Date(),
+      type: "출석",
+    });
+
+    //
+    // const insert = Users2.insert({ find }, {});
     // Session.set("start_work", start_time);
-    console.log("start_work", start_time);
+    // console.log("start_work", start_time);
   },
-  "click button[name=go]": function (e, i) {
-    let today = new Date();
-    let year = today.getFullYear();
-    let month = ("0" + (today.getMonth() + 1)).slice(-2);
-    let day = ("0" + today.getDate()).slice(-2);
-    let dateString = year + "-" + month + "-" + day;
-    let hours = ("0" + today.getHours()).slice(-2);
-    let minutes = ("0" + today.getMinutes()).slice(-2);
-    let seconds = ("0" + today.getSeconds()).slice(-2);
-    let timeString = hours + ":" + minutes + ":" + seconds;
-    const end_time = dateString + "/" + timeString;
+  "click button[name=finish_work]": function (e, i) {
+    const user = Users2.findOne();
+    // const user = Users2.find({ _id });
+    // console.log("user", user);
+    Attendance.insert({
+      user_id: user._id,
+      out_createdAt: new Date(),
+      type: "퇴근",
+    });
 
-    Users2.insert({ out: end_time });
-    Session.set("end_work", end_time);
-    console.log("end_time", end_time);
+    // Users2.insert({ out: end_time });
+    // Session.set("end_work", end_time);
+    // console.log("end_time", end_time);
   },
 });
-
-Template.attendanceSystem.helpers({
-  starting() {
-    return this._id === Session.get("start_work");
-  },
-});
-
-Template.attendanceSystem.events({
-  "click .admin": function () {
-    console.log("admin방");
-    FlowRouter.go("/admin");
-  },
-});
+//
+// Template.attendance_System.helpers({
+//   starting() {
+//     return this._id === Session.get("start_work");
+//   },
+// });

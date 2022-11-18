@@ -1,5 +1,5 @@
 import { Meteor } from "meteor/meteor";
-import { Users2, Attendance } from "../client/lib/collection";
+import { Users2 } from "../api/collection";
 import "../api/routes";
 
 Meteor.startup(() => {
