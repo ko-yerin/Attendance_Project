@@ -32,7 +32,7 @@ Template.customSignUp.events({
       } else {
         alert("회원가입 성공!");
         $(tmpl.findAll("input")).val("");
-        FlowRouter.go("/admin");
+        FlowRouter.go("/attendanceSystem");
       }
     });
   },

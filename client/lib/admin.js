@@ -1,12 +1,13 @@
 import { Template } from "meteor/templating";
-
 import "./admin.html";
+import { Meteor } from "meteor/meteor";
 // import { Users } from "/lib/collection";
+import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Session } from "meteor/session";
 import "./searchModal";
 import { Users2 } from "/api/collection";
 
-import "../../api/routes";
+// import "../../api/routes";
 
 Template.admin.helpers({
   Admin() {
@@ -33,6 +34,8 @@ Template.admin.onCreated(function () {
 Template.admin.events({
   "click #admin-button": function (event, template) {
     console.log("click");
+    FlowRouter.go("/attendanceSystem");
+
     // flow router. go 활용 예정
   },
 });
