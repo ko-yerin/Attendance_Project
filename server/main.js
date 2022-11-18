@@ -1,18 +1,16 @@
 import { Meteor } from "meteor/meteor";
-import { Users2 } from "../api/collection";
-
+import { Users2, Attendance } from "../client/lib/collection";
 import "../api/routes";
 
 Meteor.startup(() => {
-  if (Users2.find().count() == 0) {
+  // Attendance.remove({});
+  if (Users2.find().count() === 0) {
     // var users = [];
     for (var i = 0; i < 5; i++) {
       Users2.insert({
-        name: "name" + i,
+        username: "name" + i,
         nickname: "nickname" + i,
         password: "password" + i,
-        // in: now_time,
-        // out: now_time,
       });
     }
     // console.log(Users.find({}));
