@@ -1,7 +1,4 @@
 <template name="attendance_list">
-    <div >
-        <button  id="search" class="c-button c-button--successs">Admin</button>
-    </div>
     <table>
 
         <thead>
@@ -18,8 +15,10 @@
             </tr>
         {{/each}}
         </tbody>
-        {{> attendance_System}}
 
+        <div >
+            <button  id="search" class="c-button c-button--successs">Admin</button>
+        </div>
     </table>
 </template>
 
@@ -32,7 +31,7 @@
             퇴근
         </button>
     </div>
-    {{> attendance_System}}
+    {{> attendance_list}}
 
 </template>
 
