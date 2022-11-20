@@ -9,8 +9,13 @@ const { Attendance } = require("../../api/collection");
 
 Template.attendance_list.helpers({
   list() {
+    const user = Meteor.user();
+
+    console.log("user", user);
+    console.log("id", user._id);
+
     return Attendance.find(
-      { user_id: "qpXYBsrZ9DfEBcH2s" },
+      { user_id: user._id },
       { limit: 20, sort: { in_createdAt: 1 } }
     ).fetch();
   },
@@ -21,6 +26,7 @@ Template.attendance_list.helpers({
     return date.toLocaleString();
   },
 });
+
 Template.attendance_list.events({
   "click #search": function () {
     FlowRouter.go("/admin");
@@ -30,7 +36,7 @@ Template.attendance_list.events({
 Template.attendance_System.events({
   "click button[name=go_to_work]": function (e, i) {
     const user = Meteor.user();
-    console.log("user", user);
+    console.log("work ", user);
 
     Attendance.insert({
       user_id: user._id,
@@ -46,8 +52,9 @@ Template.attendance_System.events({
   },
 
   "click button[name=finish_work]": function (e, i) {
-    // const user = Users2.findOne();
-    const user = Users2.find({ _id });
+    const user = Meteor.user();
+    console.log("back", user);
+
     Attendance.insert({
       user_id: user._id,
       out_createdAt: new Date(),
