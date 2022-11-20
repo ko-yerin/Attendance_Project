@@ -16,7 +16,7 @@ Template.attendance_list.helpers({
 
     return Attendance.find(
       { user_id: user._id },
-      { limit: 20, sort: { in_createdAt: 1 } }
+      { limit: 20, sort: { in_createdAt: -1, out_createdAt: -1 } }
     ).fetch();
   },
   getInDate(date) {
