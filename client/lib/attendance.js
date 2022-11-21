@@ -12,8 +12,9 @@ Template.attendance_list.helpers({
     // console.log("user_id", user._id);
 
     return Attendance.find(
-        { user_id: user._id },
-        { limit: 20, sort: { in_createdAt: -1, out_createdAt: -1 } }
+
+      { user_id: user._id },
+      { limit: 20, sort: { in_createdAt: -1, out_createdAt: -1 } }
     ).fetch();
   },
   getInDate(date) {
@@ -90,5 +91,3 @@ Template.attendance_System.events({
     }
   },
 });
-
-//
