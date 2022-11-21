@@ -12,7 +12,6 @@ Template.attendance_list.helpers({
     // console.log("user_id", user._id);
 
     return Attendance.find(
-
       { user_id: user._id },
       { limit: 20, sort: { in_createdAt: -1, out_createdAt: -1 } }
     ).fetch();
@@ -58,6 +57,8 @@ Template.attendance_System.events({
     } else {
       Attendance.insert({
         user_id: user._id,
+        name: user.username,
+        profile_name: user.profile.name,
         in_createdAt: new Date(),
         type: "출석",
       });
@@ -84,6 +85,8 @@ Template.attendance_System.events({
     } else {
       Attendance.insert({
         user_id: user._id,
+        name: user.username,
+        profile_name: user.profile.name,
         out_createdAt: new Date(),
         type: "퇴근",
       });
