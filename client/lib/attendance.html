@@ -1,6 +1,6 @@
 <template name="attendance_list">
-    <div >
-        <button  id="search" class="c-button c-button--successs">Admin</button>
+    <div>
+        <button id="search" class="c-button c-button--successs">Admin</button>
     </div>
     <table>
         <thead>
@@ -11,10 +11,15 @@
         </thead>
         <tbody>
         {{#each list}}
-            <tr>
-                <td>{{getInDate in_createdAt}}</td>;
-                <td>{{getOutDate out_createdAt}}</td>
-            </tr>
+                <tr id = {{user_id}}>
+                {{#if type}}
+                    <td>{{getDate createdAt}}</td>
+                    <td></td>
+                {{else}}
+                    <td></td>
+                    <td>{{getDate createdAt}}</td>
+                {{/if}}
+                </tr>
         {{/each}}
         </tbody>
     </table>
