@@ -5,19 +5,19 @@ import { Meteor } from "meteor/meteor";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Session } from "meteor/session";
 import "./searchModal";
-import { Users2 } from "/api/collection";
+import { Attendance, Users2 } from "/api/collection";
 
 // import "../../api/routes";
 
 Template.admin.helpers({
   Admin() {
-    return attendance.find({});
+    return Attendance.find({});
   },
   getName() {
-    return attendance.find({});
+    return Attendance.find({});
   },
   getNickName() {
-    return attendance.find();
+    return Attendance.find();
   },
   getInDate(date) {
     return date.toLocaleString();
@@ -48,19 +48,18 @@ Template.admin.events({
     const nick = target.nick.value;
     console.log("nick:", nick);
 
-    var a = Users.find({ nickname: nick }).fetch()[0].nickname;
-    if (a !== nick) {
-      alert("닉네임을 찾을 수 없습니다!");
-    } else {
+    var profile = Attendance.find({ profile_name: nick }).fetch()[0]
+      .profile_name;
+    console.log(profile);
 
+    if (profile == nick) {
       var con = document.getElementById("hidden");
       con.style.display = "block"; //자바스크립트 css 변경
 
-      console.log(a);
-      Session.set("a", a);
-      console.log("Session", Session.get("a"));
+      Session.set("profile", profile);
+      console.log("Session", Session.get("profile"));
+    } else {
+      alert("닉네임을 찾을 수 없습니다!");
     }
-
   },
 });
-
