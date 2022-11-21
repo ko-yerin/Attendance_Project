@@ -57,6 +57,8 @@ Template.attendance_System.events({
     } else {
       Attendance.insert({
         user_id: user._id,
+        name: user.username,
+        profile_name: user.profile.name,
         in_createdAt: new Date(),
         type: "출석",
       });
@@ -83,6 +85,8 @@ Template.attendance_System.events({
     } else {
       Attendance.insert({
         user_id: user._id,
+        name: user.username,
+        profile_name: user.profile.name,
         out_createdAt: new Date(),
         type: "퇴근",
       });
