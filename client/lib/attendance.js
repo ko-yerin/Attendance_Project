@@ -1,4 +1,6 @@
-// 정렬 손보기
+// 다시 로그아웃을 하고 들어오면 출퇴큰이 된다...
+
+//find  fnindone
 
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Template } from "meteor/templating";
@@ -6,21 +8,29 @@ import { Template } from "meteor/templating";
 const { Attendance } = require("../../api/collection");
 
 Template.attendance_list.helpers({
+  type() {
+    const types = this.type;
+
+    if (types === "출석") {
+      return true;
+    } else {
+      return false;
+    }
+  },
+
   list() {
     const user = Meteor.user();
     // console.log("user_info", user);
     // console.log("user_id", user._id);
 
     return Attendance.find(
-      { user_id: user._id },
-      { limit: 20, sort: { in_createdAt: -1, out_createdAt: -1 } }
+      { user_id: user?._id },
+      { limit: 20, sort: { createdAt: -1 } }
     ).fetch();
   },
-  getInDate(date) {
-    return date.toLocaleString();
-  },
-  getOutDate(date) {
-    return date.toLocaleString();
+
+  getDate(date) {
+    return date?.toLocaleString();
   },
 });
 
@@ -59,7 +69,7 @@ Template.attendance_System.events({
         user_id: user._id,
         name: user.username,
         profile_name: user.profile.name,
-        in_createdAt: new Date(),
+        createdAt: new Date(),
         type: "출석",
       });
       alert("✅ 출근되셨습니다");
@@ -87,7 +97,7 @@ Template.attendance_System.events({
         user_id: user._id,
         name: user.username,
         profile_name: user.profile.name,
-        out_createdAt: new Date(),
+        createdAt: new Date(),
         type: "퇴근",
       });
       alert("☄️️ 퇴근되셨습니다");
