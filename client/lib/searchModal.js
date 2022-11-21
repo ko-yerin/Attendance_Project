@@ -2,7 +2,7 @@ import { Template } from "meteor/templating";
 //meteor add session
 import "./searchModal.html";
 import { Session } from "meteor/session";
-import {Attendance, Users2} from "/api/collection";
+import { Attendance, Users2 } from "/api/collection";
 
 // import "../../api/routes";
 

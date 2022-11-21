@@ -1,5 +1,10 @@
 
-로그인/회원가입
+1. 출근후 pull,  퇴근전 push
+
+
+https://github.com/Meteor-Community-Packages/meteor-collection2
+✅ https://github.com/kadirahq/flow-router 참고해서 라우팅 설정해보기 어드민 버튼 설정완료
+
 
 펍&섭 / 메서드&콜 / 라우팅
 
@@ -19,3 +24,4 @@
  -  질문을 더 활용하는 방법
  -  몽고DB에 대한 문법 부족
  -  콜렉션 어드민 계정 없음
+

@@ -5,7 +5,7 @@ import { Meteor } from "meteor/meteor";
 import { FlowRouter } from "meteor/ostrio:flow-router-extra";
 import { Session } from "meteor/session";
 import "./searchModal";
-import {Attendance, Users2} from "/api/collection";
+import { Attendance, Users2 } from "/api/collection";
 
 // import "../../api/routes";
 
@@ -48,8 +48,9 @@ Template.admin.events({
     const nick = target.nick.value;
     console.log("nick:", nick);
 
-    var profile = Attendance.find({ profile_name: nick }).fetch()[0].profile_name;
-    console.log(profile)
+    var profile = Attendance.find({ profile_name: nick }).fetch()[0]
+      .profile_name;
+    console.log(profile);
 
     if (profile == nick) {
       var con = document.getElementById("hidden");
@@ -57,9 +58,8 @@ Template.admin.events({
 
       Session.set("profile", profile);
       console.log("Session", Session.get("profile"));
-
     } else {
       alert("닉네임을 찾을 수 없습니다!");
-  }}
+    }
+  },
 });
-

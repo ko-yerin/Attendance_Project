@@ -1,25 +1,26 @@
 <template name="modal">
-  <div id="hidden">
-    <div aria-hidden class="c-overlay c-overlay--visible"></div>
-<div role="dialog" class="o-modal o-modal--visible">
-  <div class="c-card">
-    <header class="c-card__header">
-      <h2 class="c-heading">{{nickNameFind}}</h2>
-    </header>
+    <div id="hidden">
+        <div aria-hidden class="c-overlay c-overlay--visible"></div>
+        <div role="dialog" class="o-modal o-modal--visible">
+            <div class="c-card">
+                <header class="c-card__header">
+                    <h2 class="c-heading">{{nickNameFind}}</h2>
+                </header>
 
-    <div class="c-card__body o-panel" style="height:300px;">
-      {{#each check}}
-        {{#if in_createdAt}}
-        <p> ✅IN:{{in_createdAt}}</p>
-        {{else}}
-        <p> ☑️OUT:{{out_createdAt}}</p>
-        {{/if}}
-      {{/each}}
+                <div class="c-card__body o-panel" style="height:300px;">
+                    {{#each check}}
+                        {{#if in_createdAt}}
+                            <p> ✅IN:{{in_createdAt}}</p>
+                        {{else}}
+                            <p> ☑️OUT:{{out_createdAt}}</p>
+                        {{/if}}
+                    {{/each}}
+                </div>
+                <footer class="c-card__footer">
+                    <button id="close" type="button" class="c-button c-button--brand">Close</button>
+                </footer>
+            </div>
+        </div>
     </div>
-    <footer class="c-card__footer">
-      <button id="close" type="button" class="c-button c-button--brand">Close</button>
-    </footer>
-  </div>
-</div>
-</div>
-    </template>
+</template>
+
