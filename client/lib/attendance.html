@@ -11,9 +11,14 @@
         </thead>
         <tbody>
         {{#each list}}
-            <tr>
-                <td>{{getInDate in_createdAt}}</td>;
-                <td>{{getOutDate out_createdAt}}</td>
+            <tr id="{{_id}}">
+            {{#if is출근}}
+              <td>출근{{createdAt}}</td>;
+              <td>퇴근</td>
+            {{else}}
+              <td>출근</td>
+              <td>퇴근{{createdAt}}</td>;
+            {{/if}}
             </tr>
         {{/each}}
         </tbody>

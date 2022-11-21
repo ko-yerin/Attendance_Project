@@ -8,14 +8,16 @@
     <p><input type="text" name="userid" placeholder="아이디"></p>
     <p><input type="text" name="email" placeholder="메일"></p>
     <p><input type="text" name="name" placeholder="이름"></p>
-    {{#if password_type}} <!--만약 패스워드 타입이면-->
-    <p><input type="text" name="password" placeholder="비밀번호"></p>
-    <p><input type="text" name="password2" placeholder="비밀번호 확인"></p>
-    {{else}}
-    <p><input type="password" name="password" placeholder="비밀번호"></p>
-    <p><input type="password" name="password2" placeholder="비밀번호 확인"></p>
+    <p><input name="password" type="{{password_type}}"></p>
+    <p><input name="password2" type="{{password_type}}"></p>
 
-    {{/if}}
+<!--    {{#if password_type}} &lt;!&ndash;만약 패스워드 타입이면&ndash;&gt;-->
+<!--    <p><input type="text" name="password" placeholder="비밀번호"></p>-->
+<!--    <p><input type="text" name="password2" placeholder="비밀번호 확인"></p>-->
+<!--    {{else}}-->
+<!--    <p><input type="password" name="password" placeholder="비밀번호"></p>-->
+<!--    <p><input type="password" name="password2" placeholder="비밀번호 확인"></p>-->
+<!--    {{/if}}-->
     <form onsubmit="return false;">
         <p><label><input id="password_check1" type="checkbox">비밀번호 표시</label></p>
         <p><button name="signUp">회원가입</button>

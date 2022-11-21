@@ -14,11 +14,11 @@ Meteor.startup(() => {
       });
     }
     // console.log(Users.find({}));
-    console.log(Users2.find({}).fetch());
-    console.log("서버스타트");
+    // console.log(Users2.find({}).fetch());
+    // console.log("서버스타트");
   } else {
-    console.log(Users2.find({}).fetch());
-    console.log("서버가 정상적");
+    // console.log(Users2.find({}).fetch());
+    // console.log("서버가 정상적");
   }
 });
 
