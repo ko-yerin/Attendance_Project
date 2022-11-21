@@ -1,0 +1,8 @@
+<template name="layout">
+  {{#if loginY}}
+<!--    url 에 따른 dynamic template-->
+    {{> attendance_list}}
+  {{else}}
+    {{> IntoAttendance}}
+  {{/if}}
+</template>

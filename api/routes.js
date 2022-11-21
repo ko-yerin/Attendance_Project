@@ -13,7 +13,7 @@ import { BlazeLayout } from "meteor/kadira:blaze-layout";
 FlowRouter.route("/", {
   name: "Home",
   action() {
-    BlazeLayout.render("IntoAttendance");
+    BlazeLayout.render("layout");
   },
 });
 
